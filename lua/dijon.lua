@@ -2,16 +2,21 @@ local M = {}
 
 M.setup = function(opts)
     opts = opts or {}
+
     local key_map = opts.key_map or "<leader>on"
+
     vim.keymap.set("n", "<leader>on", function()
-      local width = opts.width or math.floor(vim.api.nvim_win_get_width(0) / 2)
-      local height = opts.height or math.floor(vim.api.nvim_win_get_height(0) / 2)
-      local buf = vim.api.nvim_create_buf(nil, nil)
-      -- config
-      local path = opts.path
-      local note_format = opts.note_format or os.date("%F", d)
+      local utils = require("utils")
+      
+      local format = opts.format or os.date("%F", d)
       local title = opts.title or " Obsidian Notes "
       local border = opts.border or "rounded"
+      local width = opts.width or math.floor(vim.api.nvim_win_get_width(0) / 2)
+      local height = opts.height or math.floor(vim.api.nvim_win_get_height(0) / 2)
+
+      utils.parse_config(opts.vault, format)
+
+      local buf = vim.api.nvim_create_buf(nil, nil)
 
       vim.api.nvim_open_win(buf, true, {
         relative = "editor",
@@ -25,9 +30,9 @@ M.setup = function(opts)
         style = "minimal" 
       })
 
-      vim.cmd.e(("%s/%s.%s"):format(path, note_format, "md"))
+      utils.set_notes()
 
-    end, { desc = "[O]bsidian [N]otes" })
+    end, { desc = "dijon.nvim" })
 end
 
 return M
