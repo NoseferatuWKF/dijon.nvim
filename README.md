@@ -2,17 +2,16 @@
 
 ![Dijon]( dijon.jpg )
 
-Just like dijon mustard some people might like it, some people won't. This plugin adds a simple addition to neovim to integrate with obsidian notes.
+Just like dijon mustard some people might like it, some people don't. This plugin adds a simple addition to neovim to integrate with obsidian notes.
 
 ## Motivation
 
-Moving between Obsidian and Neovim to create/update daily notes and to copy from Neovim buffer to then paste into Obsidian is a pain.
+Moving between [Obsidian](https://obsidian.md) and Neovim to create/update daily notes and to copy from Neovim buffer and then paste into [Obsidian](https://obsidian.md) is a pain.
 
 ## What it does
-- create/update Obsidian notes in an existing directory/path
+- create/update [Obsidian](https://obsidian.md) notes 
 
 ## What it does not do
-- sync plugin path to obsidian notes path
 - preview Markdown files
 - full blown integration
 
@@ -22,16 +21,18 @@ Moving between Obsidian and Neovim to create/update daily notes and to copy from
 
 ```lua
     {
-        "Noseferatu/dijon.nvim",
+        "NoseferatuWKF/dijon.nvim",
         {
             opts = {
-                -- path is important to setup
-                path = "/path/to/vault/notes-directory",
+                -- vault is the only requirement to setup
+                vault = "/path/to/vault",
                 -- defaults
                 -- key_map = "<leader>on",
                 -- width = math.floor(vim.api.nvim_win_get_width(0) / 2),
                 -- height = math.floor(vim.api.nvim_win_get_height(0) / 2),
-                -- note_format = os.date("%F, d"),
+                -- if format is different than what obsidian default gives you,
+                -- you need to set it up here with a lua compatible format
+                -- format = os.date("%F, d"),
                 -- border = "rounded",
             }
         }

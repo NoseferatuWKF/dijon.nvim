@@ -7,7 +7,9 @@ local upsert_notes = function()
 end
 
 local set_template = function()
-  vim.cmd.read(("%s/%s.%s"):format(config.vault, config.template, "md"))
+  if vim.fn.filereadable(("%s/%s/%s.%s"):format(config.vault, config.folder, config.format, "md")) == 0 then
+    vim.cmd.read(("%s/%s.%s"):format(config.vault, config.template, "md"))
+  end
 end
 
 M.parse_config = function(vault, format)
@@ -25,7 +27,9 @@ end
 
 M.set_notes = function()
   upsert_notes()
-  set_template()
+  if config.template and config.template ~= "" then
+    set_template()
+  end
 end
 
-return M;
+return M
