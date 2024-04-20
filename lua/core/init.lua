@@ -43,8 +43,10 @@ M.open_win = function(opts)
 
   utils.set_notes()
 
+  local dijon_group = vim.api.nvim_create_augroup("Dijon", { clear = true })
   vim.api.nvim_create_autocmd({"WinClosed"}, {
     pattern = "*",
+    group = dijon_group,
     callback = function()
       if buf and vim.api.nvim_buf_is_valid(buf) then
         vim.api.nvim_buf_delete(buf, {force = true})
