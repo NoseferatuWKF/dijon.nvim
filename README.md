@@ -3,7 +3,6 @@
 ![Dijon]( dijon.jpg )
 
 Just like dijon mustard some people might like it, some people don't. This plugin adds a simple addition to neovim to integrate with obsidian notes.
-
 ## Motivation
 
 Moving between [Obsidian](https://obsidian.md) and Neovim to create/update daily notes and to copy from Neovim buffer and then paste into [Obsidian](https://obsidian.md) is a pain.
@@ -30,7 +29,7 @@ Moving between [Obsidian](https://obsidian.md) and Neovim to create/update daily
                 -- if format is different than what obsidian default gives you
                 -- you need to set it up here with a lua compatible format
                 -- format = os.date("%F, d"),
-                -- title = " Obsidian Notes "
+                -- title = " Dijon "
                 -- key_map = "<leader>on",
                 -- width = math.ceil(vim.o.columns / 2),
                 -- height = math.ceil((vim.o.lines - vim.o.cmdheight) / 2),

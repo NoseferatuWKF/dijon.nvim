@@ -4,7 +4,7 @@ M.open_win = function(opts)
   local utils = require("utils")
 
   local format = opts.format or os.date("%F", d)
-  local title = opts.title or " Obsidian Notes "
+  local title = opts.title or " Dijon "
   local border = opts.border or "rounded"
   local width = opts.width or math.ceil(vim.o.columns / 2)
   local height = opts.height or math.ceil((vim.o.lines - vim.o.cmdheight) / 2)
