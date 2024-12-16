@@ -9,6 +9,7 @@ end
 local set_template = function()
   if vim.fn.filereadable(("%s/%s/%s.%s"):format(config.vault, config.folder, config.format, "md")) == 0 then
     vim.cmd.read(("%s/%s.%s"):format(config.vault, config.template, "md"))
+    vim.cmd("-1d")
   end
 end
 
